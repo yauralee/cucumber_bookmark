@@ -8,7 +8,7 @@ class HomePage < SitePrism::Page
 	element :address, '#myModal #url'
 	element :addConfirm, '#addBookMark'
   element :deleteButton, 'li:nth-child(2) .deleteButton'
-	element :deleteConfirm, "#delete"
+
 
 	def search (content)
 		keyword.set content
@@ -32,7 +32,7 @@ class HomePage < SitePrism::Page
 		def delete
 		    deleteButton.click
 		    sleep 3
-		    deleteConfirm.click
+				page.driver.browser.switch_to.alert.accept
 		    sleep 3
 		  end
 
